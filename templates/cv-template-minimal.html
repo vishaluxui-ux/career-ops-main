@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{NAME}} — CV</title>
+<style>
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('../fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('../fonts/dm-sans-latin-ext.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.55;
+    color: #111111;
+    background: #ffffff;
+  }
+
+  .page {
+    width: 100%;
+    max-width: {{PAGE_WIDTH}};
+    margin: 0 auto;
+    padding: 0.65in 0.7in;
+  }
+
+  /* === HEADER === */
+  .header {
+    margin-bottom: 18px;
+  }
+
+  .header-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+
+  .header h1 {
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  .header-subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1;
+  }
+
+  .contact-row {
+    font-size: 10.5px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .contact-row a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  .contact-sep {
+    color: #999;
+    margin: 0 4px;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #111;
+    border-bottom: 1.5px solid #111;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* === SUMMARY === */
+  .summary-text {
+    font-size: 11px;
+    line-height: 1.65;
+    color: #222;
+  }
+
+  .summary-text strong {
+    font-weight: 600;
+  }
+
+  /* === SKILLS === */
+  .skills-block {
+    font-size: 10.5px;
+    line-height: 1.7;
+    color: #222;
+  }
+
+  .skills-block .skill-line {
+    margin-bottom: 2px;
+  }
+
+  .skills-block .skill-cat {
+    font-weight: 700;
+    color: #111;
+  }
+
+  /* === WORK EXPERIENCE === */
+  .job {
+    margin-bottom: 14px;
+  }
+
+  .job-company-row {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 2px;
+  }
+
+  .job-context {
+    font-size: 10.5px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .job-role-block {
+    margin-bottom: 8px;
+  }
+
+  .job-role-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 5px;
+  }
+
+  .job ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .job li {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #222;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .job li::before {
+    content: "\2013";
+    position: absolute;
+    left: 0;
+    color: #111;
+    font-weight: 400;
+  }
+
+  .job li strong {
+    font-weight: 700;
+  }
+
+  /* === EDUCATION === */
+  .edu-item {
+    margin-bottom: 8px;
+  }
+
+  .edu-degree {
+    font-size: 11px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .edu-org {
+    font-size: 10.5px;
+    color: #333;
+    margin-top: 1px;
+  }
+
+  /* === ACHIEVEMENTS === */
+  .achievements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .achievements-list li {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #222;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .achievements-list li::before {
+    content: "\2013";
+    position: absolute;
+    left: 0;
+    color: #111;
+  }
+
+  .achievements-list li strong {
+    font-weight: 700;
+  }
+
+  /* === PRINT === */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 0.55in 0.65in; }
+  }
+
+  .avoid-break, .job, .edu-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header avoid-break">
+    <div class="header-name-row">
+      <h1>{{NAME}}</h1>
+      <span class="header-subtitle">{{HEADLINE}}</span>
+    </div>
+    <div class="contact-row">
+      {{PHONE}}<span class="contact-sep">|</span><a href="mailto:{{EMAIL}}">{{EMAIL}}</a><span class="contact-sep">|</span><a href="{{LINKEDIN_URL}}">{{LINKEDIN_DISPLAY}}</a><span class="contact-sep">|</span><a href="{{PORTFOLIO_URL}}">{{PORTFOLIO_DISPLAY}}</a>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">{{SUMMARY_TEXT}}</div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section avoid-break">
+    <div class="section-title">Skills</div>
+    <div class="skills-block">{{SKILLS}}</div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+    {{EXPERIENCE}}
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+    {{EDUCATION}}
+  </div>
+
+  <!-- NOTABLE ACHIEVEMENTS -->
+  <div class="section avoid-break">
+    <div class="section-title">Notable Achievements</div>
+    {{ACHIEVEMENTS}}
+  </div>
+
+</div>
+</body>
+</html>

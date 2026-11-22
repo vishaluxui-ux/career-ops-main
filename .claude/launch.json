@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Dashboard (TUI)",
+      "runtimeExecutable": "go",
+      "runtimeArgs": ["run", "./dashboard"],
+      "port": 0,
+      "note": "Terminal UI — not browser-previewable. Run from terminal: go run ./dashboard"
+    },
+    {
+      "name": "CV Preview (default)",
+      "url": "file:///private/tmp/claude-501/-Users-admin-Documents-Claude-career-ops-main/597578b7-32c5-4733-87ab-d2cdd1e74d31/scratchpad/cv-vishal-r-minimal.html"
+    }
+  ]
+}
