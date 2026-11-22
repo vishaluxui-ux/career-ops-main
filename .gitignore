@@ -1,10 +1,14 @@
 # Personal data (user fills these)
 cv.md
+cv-*.md
+article-digest.md
 data/applications.md
 data/pipeline.md
 data/scan-history.tsv
 reports/*.md
 !reports/.gitkeep
+interview-prep/*
+!interview-prep/.gitkeep
 output/*
 !output/.gitkeep
 batch/logs/*
